@@ -10,7 +10,7 @@ class DBConnect:
     _cnxpool = None
 
     def __init__(self):
-        raise RuntimeError('Do not create an instance, use the class method get_connection()!')
+        raise RuntimeError('Do not create an instance, use the class method get_connection()!!!')
 
     @classmethod
     def get_connection(cls, pool_name = "my_pool", pool_size = 3) -> mysql.connector.pooling.PooledMySQLConnection:
