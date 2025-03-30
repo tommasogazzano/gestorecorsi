@@ -1,3 +1,5 @@
+import pathlib
+
 import mysql.connector
 from mysql.connector import errorcode
 
@@ -22,7 +24,7 @@ class DBConnect:
                 cls._cnxpool = mysql.connector.pooling.MySQLConnectionPool(
                     pool_name=pool_name,
                     pool_size=pool_size,
-                    option_files='./database/connector.cnf'
+                    option_files=f"{pathlib.Path(__file__).resolve().parent}/connector.cnf"
                 )
                 return cls._cnxpool.get_connection()
             except mysql.connector.Error as err:
